@@ -351,11 +351,50 @@
                         <option value="03">Other</option>
                     </select>
                 </div>
-                <div class="col input-field s3"> 
-                        <input name="casteName" id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">Caste</label> 
+                <div class="col input-field s3">
+                    <select name="casteName">
+                        <option value="">Select caste</option>
+                        <option value="01">General</option>
+                        <option value="02">SC</option>
+                        <option value="03">ST</option>
+                        <option value="04">OBC</option>
+                    </select>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col input-field s3">
+                    <input name="accountNumber" id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Bank Account Number</label>
+                </div>
+                <div class="col input-field s4">
+                    <input name="bankName" id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Name of Bank</label>
+                </div>
+                <div class="row">
+                    <div class="col input-field s2">
+                        <input name="ifscNumber" id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Enter IFSC Code</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col input-field s3"> 
+                    <select name="yearStay">
+                        <option value="">Number of years of stay in city</option>
+                        <option value="01">0 to 1 Year</option>
+                        <option value="02">1 to 3 Years</option>
+                        <option value="03">3 to 5 Years</option>
+                        <option value="04">More than 5 Years</option>
+                    </select>
+                </div>
+                <div class="col input-field s3">
+                    <input name="dwellingUnits" id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Size of Existing Dwelling Units</label>
+                </div>    
+            </div>
+
 
             <div class="row">
                 <p class="col">A person with Disability?</p>
@@ -375,6 +414,16 @@
                         <option value="">Select Marital Status</option>
                         <option value="01">Married</option>
                         <option value="02">UnMarried</option>
+                        <option value="03">Single Woman or Widow</option>
+                    </select>
+                </div><div class="col input-field s3"> 
+                    <select name="employmentStatus">
+                        <option value="">Select Employment Status</option>
+                        <option value="01">Self Employed</option>
+                        <option value="02">Salaried</option>
+                        <option value="03">Regular Wage</option>
+                        <option value="04">Labour Wage</option>
+                        <option value="05">Other</option>
                     </select>
                 </div>
                 <div class="col input-field s3">
@@ -384,7 +433,7 @@
             </div>
 
             <div class="row">
-                <p class="col">Does the person already has a home?</p>
+                <p class="col">Does the person already has a home/Residential land in India?</p>
                 <p class="col" style="margin-left:50px;">
                     <input class="with-gap" name="group2" type="radio" id="test3" />
                     <label for="test3">Yes</label>
@@ -402,8 +451,38 @@
                         <option value="02">Co-Owner</option>
                     </select>
                 </div>
-            </div>    
+            </div>
+            <div class="row">
+                <p class="col">Does the Family have a BPL Card?</p>
+                <p class="col" style="margin-left:50px;">
+                    <input class="with-gap" name="group3" type="radio" id="test5"/>
+                    <label for="test5">Yes</label>
+                </p>
+                <p class="col" style="margin-left:50px;">
+                    <input class="with-gap" name="group3" type="radio" id="test6"/>
+                    <label for="test6">No</label>
+                </p>
+            </div>
             
+            <div class="row">
+                <div class="col input-field s4"> 
+                    <select name="housingRequirement">
+                        <option value="">Housing Requirement of Family</option>
+                        <option value="01">New House</option>
+                        <option value="02">Enhancement</option>
+                    </select>
+                </div>
+                <div class="col input-field s5"> 
+                    <select name="housingRequirement">
+                        <option value="00">In case of Enhancement, please specify Enhancement</option>
+                        <option value="01">One Room</option>
+                        <option value="03">Kitchen</option>
+                        <option value="04">Bathroom</option>
+                        <option value="05">Toilet or Combination of the two</option>
+                    </select>
+                </div>    
+            </div>
+
             <div class="row">
                 <p style="margin-left:10px;">Upload a Photo of Head of the Family:</p>        
                 <p style="margin-left:10px;">(The size of the Photograph should not be more than 16kb)</p>
