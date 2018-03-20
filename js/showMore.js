@@ -8,7 +8,7 @@
                     <input name="serialNumber" id="icon_prefix" type="text" class="validate">
                     <label id="serialNumber" for="icon_prefix">`+ i +`</label>
                 </div>
-                <div class="col input-field s2">
+                <div class="col input-field s3">
                     <input name="mobileNumber" id="icon_prefix" type="text" class="validate">
                     <label for="icon_prefix">Name of Family member</label>
                 </div>

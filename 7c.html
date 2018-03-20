@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Beneficiary led Construction or Enhancement</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/material.js"></script>
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/InSitu.css">
+    <script>
+        $(document).ready(function() {
+           $('select').material_select();
+        });
+     </script>
+
+      <script>
+        var selectstate = {
+            "Andhra Pradesh": ["Anantapur","Chittoor","East Godavari","Guntur","Krishna","Kurnool","Prakasam","Srikakulam","SriPotti Sri Ramulu Nellore","Vishakhapatnam","Vizianagaram","West Godavari","Cudappah"],
+            "Arunachal Pradesh":  ["Anjaw","Changlang","Dibang Valley","East Siang","East Kameng","Kurung Kumey","Lohit","Longding","Lower Dibang Valley","Lower Subansiri","Papum Pare", "Tawang","Tirap","Upper Siang","Upper Subansiri","West Kameng","West Siang"],
+            "Assam": ["Baksa","Barpeta","Bongaigaon","Cachar","Chirang","Darrang","Dhemaji","Dima Hasao","Dhubri","Dibrugarh","Goalpara","Golaghat","Hailakandi","Jorhat","Kamrup","Kamrup Metropolitan","Karbi Anglong","Karimganj","Kokrajhar","Lakhimpur","Morigaon","Nagaon","Nalbari","Sivasagar","Sonitpur","Tinsukia","Udalguri"],
+            "Bihar": ["Araria","Arwal","Aurangabad","Banka","Begusarai","Bhagalpur","Bhojpur","Buxar","Darbhanga","East Champaran","Gaya","Gopalganj","Jamui","Jehanabad","Kaimur",
+                                        "Katihar","Khagaria","Kishanganj","Lakhisarai","Madhepura","Madhubani","Munger","Muzaffarpur","Nalanda","Nawada","Patna","Purnia","Rohtas","Saharsa",
+                                        "Samastipur","Saran","Sheikhpura","Sheohar","Sitamarhi","Siwan","Supaul","Vaishali","West Champaran"],
+            "Chattisgarh": ["Bastar","Bijapur","Bilaspur","Dantewada","Dhamtari","Durg","Jashpur","Janjgir-Champa","Korba","Koriya","Kanker","Kabirdham (formerly Kawardha)","Mahasamund",
+                                            "Narayanpur","Raigarh","Rajnandgaon","Raipur","Surajpur","Surguja"],
+            "Dadra and Nagar Haveli": ["Amal","Silvassa"],
+            "Daman and Diu": ["Daman","Diu"],
+            "Delhi": ["Delhi","New Delhi","North Delhi","Noida","Patparganj","Sonabarsa","Tughlakabad"],
+            "Goa": ["Chapora","Dabolim","Madgaon","Marmugao (Marmagao)","Panaji Port","Panjim","Pellet Plant Jetty/Shiroda","Talpona","Vasco da Gama"],
+            "Gujarat": ["Ahmedabad","Amreli district","Anand","Aravalli","Banaskantha","Bharuch","Bhavnagar","Dahod","Dang","Gandhinagar","Jamnagar","Junagadh",
+                                        "Kutch","Kheda","Mehsana","Narmada","Navsari","Patan","Panchmahal","Porbandar","Rajkot","Sabarkantha","Surendranagar","Surat","Tapi","Vadodara","Valsad"],
+            "Haryana": ["Ambala","Bhiwani","Faridabad","Fatehabad","Gurgaon","Hissar","Jhajjar","Jind","Karnal","Kaithal", "Kurukshetra","Mahendragarh","Mewat","Palwal","Panchkula","Panipat","Rewari","Rohtak","Sirsa","Sonipat","Yamuna Nagar"],                             
+            "Himachal Pradesh":  ["Baddi","Baitalpur","Chamba","Dharamsala","Hamirpur","Kangra","Kinnaur","Kullu","Lahaul & Spiti","Mandi","Simla","Sirmaur","Solan","Una"],
+            "Jammu and Kashmir": ["Jammu","Leh","Rajouri","Srinagar"],
+            "Jharkhand": ["Bokaro","Chatra","Deoghar","Dhanbad","Dumka","East Singhbhum","Garhwa","Giridih","Godda","Gumla","Hazaribag","Jamtara","Khunti","Koderma","Latehar","Lohardaga","Pakur","Palamu",
+                                            "Ramgarh","Ranchi","Sahibganj","Seraikela Kharsawan","Simdega","West Singhbhum"],
+            "Karnataka": ["Bagalkot","Bangalore","Bangalore Urban","Belgaum","Bellary","Bidar","Bijapur","Chamarajnagar", "Chikkamagaluru","Chikkaballapur",
+                                          "Chitradurga","Davanagere","Dharwad","Dakshina Kannada","Gadag","Gulbarga","Hassan","Haveri district","Kodagu",
+                                          "Kolar","Koppal","Mandya","Mysore","Raichur","Shimoga","Tumkur","Udupi","Uttara Kannada","Ramanagara","Yadgir"],
+            "Kerela": ["Alappuzha","Ernakulam","Idukki","Kannur","Kasaragod","Kollam","Kottayam","Kozhikode","Malappuram","Palakkad","Pathanamthitta","Thrissur","Thiruvananthapuram","Wayanad"],
+            "Madhya Pradesh":  ["Alirajpur","Anuppur","Ashoknagar","Balaghat","Barwani","Betul","Bhilai","Bhind","Bhopal","Burhanpur","Chhatarpur","Chhindwara","Damoh","Dewas","Dhar","Guna","Gwalior","Hoshangabad",
+                                    "Indore","Itarsi","Jabalpur","Khajuraho","Khandwa","Khargone","Malanpur","Malanpuri (Gwalior)","Mandla","Mandsaur","Morena","Narsinghpur","Neemuch","Panna","Pithampur","Raipur","Raisen","Ratlam",
+                                    "Rewa","Sagar","Satna","Sehore","Seoni","Shahdol","Singrauli","Ujjain"],
+            "Maharashtra":  ["Ahmednagar","Akola","Alibag","Amaravati","Arnala","Aurangabad","Aurangabad","Bandra","Bassain","Belapur","Bhiwandi","Bhusaval","Borliai-Mandla","Chandrapur","Dahanu","Daulatabad","Dighi (Pune)","Dombivali","Goa","Jaitapur","Jalgaon",
+                                            "Jawaharlal Nehru (Nhava Sheva)","Kalyan","Karanja","Kelwa","Khopoli","Kolhapur","Lonavale","Malegaon","Malwan","Manori",
+                                            "Mira Bhayandar","Miraj","Mumbai (ex Bombay)","Murad","Nagapur","Nagpur","Nalasopara","Nanded","Nandgaon","Nasik","Navi Mumbai","Nhave","Osmanabad","Palghar",
+                                            "Panvel","Pimpri","Pune","Ratnagiri","Sholapur","Shrirampur","Shriwardhan","Tarapur","Thana","Thane","Trombay","Varsova","Vengurla","Virar","Wada"],
+            "Manipur": ["Bishnupur","Churachandpur","Chandel","Imphal East","Senapati","Tamenglong","Thoubal","Ukhrul","Imphal West"],
+            "Meghalaya": ["Baghamara","Balet","Barsora","Bolanganj","Dalu","Dawki","Ghasuapara","Mahendraganj","Moreh","Ryngku","Shella Bazar","Shillong"],
+            "Mizoram": ["Aizawl","Champhai","Kolasib","Lawngtlai","Lunglei","Mamit","Saiha","Serchhip"],
+            "Nagaland": ["Dimapur","Kiphire","Kohima","Longleng","Mokokchung","Mon","Peren","Phek","Tuensang","Wokha","Zunheboto"],                                 
+            "Odisha": ["Bahabal Pur","Bhubaneswar","Chandbali","Gopalpur","Jeypore","Paradip Garh","Puri","Rourkela"],
+            "Puducherry": ["Karaikal","Mahe","Pondicherry","Yanam"],
+            "Punjab": ["Amritsar","Barnala","Bathinda","Firozpur","Faridkot","Fatehgarh Sahib","Fazilka","Gurdaspur","Hoshiarpur","Jalandhar","Kapurthala","Ludhiana","Mansa","Moga","Sri Muktsar Sahib","Pathankot",
+                                        "Patiala","Rupnagar","Ajitgarh (Mohali)","Sangrur","Shahid Bhagat Singh Nagar","Tarn Taran"],
+            "Rajasthan": ["Ajmer","Banswara","Barmer","Barmer Rail Station","Basni","Beawar","Bharatpur","Bhilwara","Bhiwadi","Bikaner","Bongaigaon","Boranada, Jodhpur","Chittaurgarh","Fazilka","Ganganagar","Jaipur","Jaipur-Kanakpura",
+                                      "Jaipur-Sitapura","Jaisalmer","Jodhpur","Jodhpur-Bhagat Ki Kothi","Jodhpur-Thar","Kardhan","Kota","Munabao Rail Station","Nagaur","Rajsamand","Sawaimadhopur","Shahdol","Shimoga","Tonk","Udaipur"],
+            "Sikkim": ["Chamurci","Gangtok"],
+            "Tamil Nadu":  ["Ariyalur","Chennai","Coimbatore","Cuddalore","Dharmapuri","Dindigul","Erode","Kanchipuram","Kanyakumari","Karur","Krishnagiri","Madurai","Mandapam","Nagapattinam","Nilgiris","Namakkal","Perambalur","Pudukkottai","Ramanathapuram","Salem","Sivaganga","Thanjavur","Thiruvallur","Tirupur",
+                                  "Tiruchirapalli","Theni","Tirunelveli","Thanjavur","Thoothukudi","Tiruvallur","Tiruvannamalai","Vellore","Villupuram","Viruthunagar"],
+            "Telangana": ["Adilabad","Hyderabad","Karimnagar","Mahbubnagar","Medak","Nalgonda","Nizamabad","Ranga Reddy","Warangal"],
+            "Tripura": ["Agartala","Dhalaighat","Kailashahar","Kamalpur","Kanchanpur","Kel Sahar Subdivision","Khowai","Khowaighat","Mahurighat","Old Raghna Bazar","Sabroom","Srimantapur"],
+            "Uttar Pradesh":  ["Agra","Allahabad","Auraiya","Banbasa","Bareilly","Berhni","Bhadohi","Dadri","Dharchula","Gandhar","Gauriphanta","Ghaziabad","Gorakhpur","Gunji",
+                                    "Jarwa","Jhulaghat (Pithoragarh)","Kanpur","Katarniyaghat","Khunwa","Loni","Lucknow","Meerut","Moradabad","Muzaffarnagar","Nepalgunj Road","Pakwara (Moradabad)",
+                                    "Pantnagar","Saharanpur","Sonauli","Surajpur","Tikonia","Varanasi"],
+            "Uttrakhand": ["Almora","Badrinath","Bangla","Barkot","Bazpur","Chamoli","Chopra","Dehra Dun","Dwarahat","Garhwal","Haldwani","Hardwar","Haridwar","Jamal","Jwalapur","Kalsi","Kashipur","Mall",
+                                          "Mussoorie","Nahar","Naini","Pantnagar","Pauri","Pithoragarh","Rameshwar","Rishikesh","Rohni","Roorkee","Sama","Saur"],
+            "West Bengal": ["Alipurduar","Bankura","Bardhaman","Birbhum","Cooch Behar","Dakshin Dinajpur","Darjeeling","Hooghly","Howrah",
+                                    "Jalpaiguri","Kolkata","Maldah","Murshidabad","Nadia","North 24 Parganas","Paschim Medinipur","Purba Medinipur","Purulia","South 24 Parganas","Uttar Dinajpur"]
+        }
+        function changecat(value) {
+            if (value.length == 0) document.getElementById("city").innerHTML = "<option></option>";
+            else {
+                var catOptions = "";
+                for (categoryId in selectstate[value]) {
+                catOptions += "<option>" + selectstate[value][categoryId] + "</option>";
+            }
+            document.getElementById("city").innerHTML = catOptions;
+            }
+            $('select').material_select();
+        }        
+      </script>
+
+  </head>
+  <body>
+      <nav class="inSituHead">
+        <div class="nav-wrapper">
+          <p class="brand">Beneficiary led Construction or Enhancement Application</p >
+          </ul>
+        </div>
+      </nav>
+      <form name="inSitu" class="inSituForm">
+        <div>
+        <div class="col row-1">
+          <div class="row input-field s6 frm2">
+            <select id ="1" name="1" onchange="populate(this.id,'2')">
+                <option value=""></option>
+                <option value="MP">MP</option>
+                <option value="AN">AN</option>
+                <option value="AP">AP</option>
+            </select>
+          </div>
+          <div class="row input-field s6 frm2 state2">
+              <select id ="2" name="2"> </select>
+          </div>
+        </div>    
+        <div class="row">
+            <div class="input-field col s8 slumName">
+              <input name="slumName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Project Name</label>
+            </div>
+        </div>
+        <div>   <!-- THIS DIVISION IS ONLY FOR PROJECT CODE -->
+          <p class="row-2">Project Code:</p>
+          <div class="projectCode">
+            <div style="width:120px"  class="row input-field s6 frm2 proCode">
+              <select name="stateName">
+                  <option value="">Select State</option>
+                  <option value="01">XYZ</option>
+                  <option value="02">PQR</option>
+                  <option value="03">LMN</option>
+              </select>
+            </div>
+            <div style="width:100px"  class="col input-field s6 frm2 proCode">
+                <select class="newFont" name="cityName">
+                    <option value="">City</option>
+                    <option value="01">XYZ</option>
+                    <option value="02">PQR</option>
+                    <option value="03">LMN</option>
+                </select>
+            </div>
+            <div style="width:130px" class="row number">
+              <div class="input-field col proName">
+                <input name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Number</label>
+              </div>
+            </div>
+            <div style="width:130px" class="row input-field s6 frm2 proCode">
+                <select name="stateName">
+                    <option value="">Type</option>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="03">4</option>
+                </select>
+            </div>
+            <div style="margin-left: 30px; width:130px" class="row input-field s6 frm2 proCode">
+              <select name="stateName">
+                  <option value="">State</option>
+                  <option value="01">New</option>
+                  <option value="02">Revised</option>
+              </select>
+            </div>
+            <div style="margin-left: 30px; width:130px" class="row input-field s6 frm2 proCode">
+              <select name="stateName">
+                  <option value="">Running Number</option>
+                  <option value="01">0</option>
+                  <option value="02">1</option>
+              </select>
+            </div>
+          </div>
+          </div>
+            <div class="row">
+              <div class="input-field col s8 ">
+                  <input name="slumName" id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">State Level Nodal Agency</label>
+            </div>
+          <div>
+            <div class="row">
+              <div class="input-field col s8 ">
+                  <input name="slumName" id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">Implementing  Agency</label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="row">
+              <div class="input-field col s8 ">
+                <p style="margin-top:20px; color: gray;">Date of Approval by SLSMC</p>
+                  <input type="text" class="datepicker">
+                  <script>
+                    $('.datepicker').pickadate({
+                      selectMonths: true, // Creates a dropdown to control month
+                      selectYears: 15, // Creates a dropdown of 15 years to control year,
+                      today: 'Today',
+                      clear: 'Clear',
+                      close: 'Ok',
+                      closeOnSelect: false // Close upon selecting a date,
+                    });
+                  </script>
+              </div>  
+            </div>
+            </div>
+          </div>
+          <div>
+            <div class="row">
+              <div class="input-field col s8 ">
+                  <input name="slumName" id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">Project Cost(Rs. In Lakhs)</label>
+              </div>
+            </div>
+          </div>
+          <div>
+            </div>
+          
+          
+        <!-- <p>asdasdsad</p> -->
+        <div id="slumHouseholds" style="float: left; margin-left: 10px;">
+          <!-- NO. OF SLUM HOUSEHOLDS -->
+          <p style="">No. of beneficiaries covered in the project : </p>
+          <br>
+
+          <p style="float: left; line-height: 80px; ">New Construction</p>
+
+            <div style="width:150px; margin-right: 40px;" class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Genral</label>
+              </div>
+            </div>
+            
+
+            <div style="width:150px; margin-right: 40px;" class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">OBC</label>
+              </div>
+            </div>
+            <div  style="width:150px; margin-right: 40px;" class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px"  name="projectName" id="icon_prefix" type="text" class="validate">
+                <label style="width:150px"  for="icon_prefix">SC</label>
+              </div>
+            </div>
+            <div style="width:150px; " class="row number">
+              <div class="input-field col proName">
+                <input style="width: 150px;" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">ST</label>
+              </div>
+            </div>
+          
+            <div>
+          <div style="float: left;" id="Elegible"  >
+
+            <p style="float: left; line-height: 80px; ">Enhancement</p>
+            
+            
+            <div style="width:150px; float: left; margin-right: 40px; " class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Genral</label>
+              </div>
+            </div>
+
+
+            
+            <div style="width:150px; float: left; margin-right: 40px; " class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">OBC</label>
+              </div>
+            </div>
+
+
+            
+            <div style="width:150px; float: left; margin-right: 40px; " class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">SC</label>
+              </div>
+            </div>
+
+
+
+            <div style="width:150px; float: left; margin-right: 40px;" class="row number">
+              <div class="input-field col proName">
+                <input style="width:150px" name="projectName" id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">ST</label>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      
+            <div class="row">
+              <div class="input-field col s8 ">
+                  <input name="slumName" id="icon_prefix" type="text" class="validate" style=" width:775px;">
+            
+                  <label for="icon_prefix">Houses proposed (Slum rehabilitation only)</label>
+              </div>
+            </div>
+
+          <div id = "select">
+
+            <p style="">Whether Benificiary have been selected as per PMAY guidelines ?:</p> 
+            <br>
+            <select >
+              <option>ANSWER (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+            </select>
+
+          </div>
+            
+<br>
+
+          <div>
+            
+            <p style="line-height: 0px;">Whether it has been ensured that selected beneficiaries
+have rightful ownership of the land</p>
+            <br>
+            <input type="text" class="datepicker">
+                  <script>
+                    $('.datepicker').pickadate({
+                      selectMonths: true, // Creates a dropdown to control month
+                      selectYears: 15, // Creates a dropdown of 15 years to control year,
+                      today: 'Today',
+                      clear: 'Clear',
+                      close: 'Ok',
+                      closeOnSelect: false // Close upon selecting a date,
+                    });
+                  </script>
+
+          </div>
+
+
+          
+          <br>
+
+          <div id = "13">
+
+             <p> Whether building plan for all houses have been approved?</p>
+
+             <br>
+             <select >
+              <option>ANSWER (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+              </select>
+
+          </div>
+
+          <br>
+
+          <div id = "14">
+
+            <p>GoI grant required</p>
+            
+
+            <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">GoI grant required (Rs. 1.0 lakh per eligible slum dweller)</label>
+            </div>
+
+            <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">State grant, if any (Rs. In Lakhs)</label>
+            </div>
+
+            <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">ULB grant, if any (Rs. In Lakhs)</label>
+            </div>  
+
+              <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">Beneficiary Share (Rs. In Lakhs)</label>
+            </div>
+
+          </div>
+
+          <br>
+
+          <div id ="15">
+
+              <p>Whether technical specification/dwelling unit design for housing have been ensured as per Indian Standards/NBC/State norms?</p>
+
+              <br>
+
+              <select >
+              <option>ANSWER (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+              </select>
+
+
+          </div>
+
+          <br>
+
+          <div id = "16">
+
+            <p>Whether it has been ensured that balance cost of construction is tied up with State grant, ULB grant & beneficiary share?</p>
+
+            <br>
+
+            <select >
+              <option>ANSWER (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+
+            </select>
+
+
+          </div>
+
+          <br>
+
+          
+          
+
+          <div id = "17">
+
+            <p>Whether trunk and line infrastructure is existing or being provisioned</p>
+
+            <br>
+
+            
+ 
+            <select >
+              <option>Water Supply (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+
+            </select>
+
+
+            <br>
+            
+
+            <select >
+              <option>Sewerage (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+
+            </select>
+
+
+            <br>
+
+            <select >
+              <option>Road (YES/NO)</option>
+              <option>YES</option>
+              <option>NO</option> 
+
+            </select>
+
+
+
+            <br>
+
+              <select >
+              
+                <option>Storm Water Drain (YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+              </select>
+
+              <br>
+
+              <select >
+              
+                <option>External Electrification (YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+              </select>
+
+              <br>
+
+              <select >
+              
+                <option>Solid Waste Management (YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+              </select>
+
+              <br>
+
+              <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">Any other, specify</label>
+              </div>  
+              
+              <br>
+
+
+              <div class="input-field col proName">
+              <input style="width:793px;" name="projectName" id="icon_prefix"  type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">In case, any infrastructure has not been proposed,reasons thereof</label>
+              </div>  
+
+              <br>
+
+
+          </div>
+
+          <div id = "18">
+
+            <p>Whether disaster (earthquake, flood, cyclone, landslide etc.) resistant features have been adopted in concept, design and implementation of the project?</p>
+
+              <br>
+
+                <select >
+              
+                <option>ANSWER(YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+                 </select>
+          </div>
+
+          <div id = "19">
+
+            <br>
+            <p>Whether Demand Survey Completed for entire city?</p>
+
+              <br>
+
+                <select >
+              
+                <option>ANSWER(YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+                 </select>
+          
+
+
+          </div>
+
+          <br>
+
+          <div id = "20">
+
+            <br>
+            <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">Whether City-wide integrated project have been
+formulated? If not, reasons thereof.</label>
+            </div>
+
+          </div>
+
+          <br>
+
+          <div id = "21">
+
+            <p>Whether validation with SECC data for housing conditions conducted?</p>
+            <br>
+
+                <select >
+              
+                <option>ANSWER(YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+                </select>
+
+          </div>
+
+
+          <br>
+
+          <div id = "22">
+
+            <p>Whether Direct Benefit Transfer (DBT) of fund to individual bank account of beneficiary ensured in the project?</p>
+
+            <br>
+
+            <select >
+              
+                <option>ANSWER(YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+            </select>
+
+          </div>
+
+          <br>
+
+          <div id = "23">
+
+            <br>
+
+            <p>Whether there is provision in DPR for tracking/ monitoring the progress of individual houses through geo-tagged photographs?</p>
+
+            <select >
+              
+                <option>ANSWER(YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+            </select>
+
+
+          </div>
+
+          <br>
+
+          <div id = "24">
+
+            <p>Whether any innovative/cost effective/ Green technology adopted in the project</p>
+
+            <br>
+
+            <select >
+              
+                <option>ANSWER(YES/NO)</option>
+                <option>YES</option>
+                <option>NO</option> 
+
+            </select>
+
+
+          </div>
+          
+          <br>
+
+          <div id = "25">
+
+            <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">Comments of SLAC after techno economic appraisal of DPR</label>
+            </div>
+
+
+
+          </div>
+
+          <div id = "26">
+
+            
+
+            <div class="input-field col proName">
+              <input style="width:793px" name="projectName" id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix" style="width: 700px;">Project brief including any other information ULB/State would like to furnish</label>
+            </div>
+
+          </div>
+
+
+          <div id = "27">
+
+            <center>
+
+            <input style="width:170px; height:70px; background: #f4511e; color: white; " type="submit" value="submit">
+
+          </center>
+
+          </div>
+
+        <br>
+
+    </form>        
+  </body>
+</html>

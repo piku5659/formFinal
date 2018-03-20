@@ -144,17 +144,17 @@
 
                 <div class="row">
                         <div class="col input-field s3">
-                            <input name="infrastNotproposed" id="icon_prefix" type="text" class="validate">
+                            <input name="cityName" id="icon_prefix" type="text" class="validate">
                             <label for="icon_prefix">City Name</label>
                         </div>  
                 </div>
                 <div class="row">
                 <div class="col input-field s3">
-                        <input id="project_name" type="text" class="validate">
+                        <input name="projectName" id="project_name" type="text" class="validate">
                         <label for="project_name">Project Name</label>
                 </div>
                 <div class="col input-field s3">
-                        <input id="project_code" type="text" class="validate">
+                        <input name="projectCode" id="project_code" type="text" class="validate">
                         <label for="project_code">Project Code</label>
                 </div>
             </div>
@@ -163,20 +163,22 @@
                     <div class="col input-field s3">
                       <select name="nodalAgency">
                           <option value="">State Level Nodal Agency</option>
-                          <option value="01">1</option>
-                          <option value="02">2</option>
-                          <option value="03">3</option>
+                          <option value="01">SLAC</option>
+                          <option value="02">SLSMC</option>
                       </select>
                    </div>
                
                    <div class="col input-field s3">
-                      <select name="implementationAgency">
+                      <select name="implementingAgency">
                           <option value="">Implementing Agency </option>
-                          <option value="01">1</option>
-                          <option value="02">2</option>
-                          <option value="03">3</option>
+                          <option value="01">Urban Local Bodies</option>
+                          <option value="02">Development Authority</option>
+                          <option value="03">Housing Board</option>
+                          <option value="04">Urban Improvement Trust</option>
+                          <option value="05">Slum Rehabilitation Agency</option>
+                          <option value="06">Private Agency</option>
+                          <option value="07">Developer</option>
                       </select>
-                   
                </div>
    
                    <div class="row">
@@ -194,26 +196,20 @@
                    <div class="row projectCost">
                      <div style="width:150px" class="col housing">
                        <div class="input-field col proCost">
-                         <input name="projectCost" id="icon_prefix" type="text" class="validate">
+                         <input name="projectCostHousing" id="icon_prefix" type="text" class="validate">
                          <label for="icon_prefix">Housing</label>
                        </div>
                      </div>
                      <div style="width:150px" class="col infrastructure">
                         <div class="input-field col proCost">
-                          <input name="projectCost" id="icon_prefix" type="text" class="validate">
+                          <input name="projectInfrastructure" id="icon_prefix" type="text" class="validate">
                           <label for="icon_prefix">Infrastructure</label>
                         </div>
                      </div> 
                      <div style="width:150px" class="col other">
                             <div class="input-field col proCost">
-                              <input name="projectCost" id="icon_prefix" type="text" class="validate">
+                              <input name="othersCost" id="icon_prefix" type="text" class="validate">
                               <label for="icon_prefix">Others</label>
-                            </div>
-                     </div>
-                     <div style="width:150px" class="col total">
-                            <div class="input-field col proCost">
-                              <input name="projectCost" id="icon_prefix" type="text" class="validate">
-                              <label for="icon_prefix">Total</label>
                             </div>
                      </div>
                    </div>
@@ -221,40 +217,34 @@
                      <div class="row ewsBeneficiaries">
                        <div style="width:150px" class="col general">
                          <div class="input-field col ewsBeneficiaries">
-                           <input name="ewsBeneficiaries" id="icon_prefix" type="text" class="validate">
+                           <input name="ewsBeneficiariesGeneral" id="icon_prefix" type="text" class="validate">
                            <label for="icon_prefix">General</label>
                          </div>
                        </div>
                        <div style="width:150px" class="col sc">
                           <div class="input-field col ewsBeneficiaries">
-                            <input name=ewsBeneficiaries"" id="icon_prefix" type="text" class="validate">
+                            <input name=ewsBeneficiariesSC"" id="icon_prefix" type="text" class="validate">
                             <label for="icon_prefix">SC</label>
                           </div>
                        </div> 
                        <div style="width:150px" class="col st">
                               <div class="input-field col ewsBeneficiaries">
-                                <input name="ewsBeneficiaries" id="icon_prefix" type="text" class="validate">
+                                <input name="ewsBeneficiariesST" id="icon_prefix" type="text" class="validate">
                                 <label for="icon_prefix">ST</label>
                               </div>
                        </div>
                        <div style="width:150px" class="col obc">
                               <div class="input-field col ewsBeneficiaries">
-                                <input name="ewsBeneficiaries" id="icon_prefix" type="text" class="validate">
+                                <input name="ewsBeneficiariesOBC" id="icon_prefix" type="text" class="validate">
                                 <label for="icon_prefix">OBC</label>
                               </div>
                        </div>
-                       <div style="width:150px" class="col total">
-                            <div class="input-field col ewsBeneficiaries">
-                              <input name="ewsBeneficiaries" id="icon_prefix" type="text" class="validate">
-                              <label for="icon_prefix">Total</label>
-                            </div>
-                     </div>
-                     <div style="width:150px" class="col minority">
-                            <div class="input-field col ewsBeneficiaries ">
-                              <input name="ewsBeneficiaries" id="icon_prefix" type="text" class="validate">
-                              <label for="icon_prefix">Minority</label>
-                            </div>
-                     </div>
+                      <div style="width:150px" class="col minority">
+                              <div class="input-field col ewsBeneficiaries ">
+                                <input name="ewsBeneficiariesMinority" id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">Minority</label>
+                              </div>
+                      </div>
                     </div>
                      <!--@-->
                     <p class="row"> Whether Beneficiary have been selected as per PMAY Guidelines:</p>
@@ -270,11 +260,11 @@
                       <!--@-->
                       <div class="row">
                             <div class="col input-field s3">
-                                    <input id="const_cost" type="text" class="validate">
+                                    <input name="constructionCost" id="const_cost" type="text" class="validate">
                                     <label for="const_cost">Construction Cost of EWS Unit( In Lakhs.)</label>
                             </div>
                             <div class="col input-field s3">
-                                    <input id="project_duration" type="text" class="validate">
+                                    <input name="projectDuration" id="project_duration" type="text" class="validate">
                                     <label for="project_duration">Project Duration(In Months)</label>
                             </div>
                       </div>
@@ -282,7 +272,7 @@
                       <p class="row"> Whether Sale Price is provided by State/UT:</p>
                       <div class="row">
                               <div class="col input-field s3">
-                                <select name="salePrice">
+                                <select name="salePriceProvided">
                                     <option value="">Select</option>
                                     <option value="01">Yes</option>
                                     <option value="02">No</option>
@@ -292,7 +282,7 @@
                       <!--#--> 
                       <div class="row">
                             <div class="col input-field s3">
-                                    <input id="carpet_area" type="text" class="validate">
+                                    <input name="carpetArea" id="carpet_area" type="text" class="validate">
                                     <label for="carpet_area">Carpet Area of EWS Unit(in sqm)</label>
                             </div>
                       </div>
@@ -301,31 +291,31 @@
                       <div class="row houseProposed">
                         <div style="width:150px" class="col ewsUnit">
                           <div class="input-field col houseProposed ">
-                            <input name=" houseProposed" id="icon_prefix" type="text" class="validate">
+                            <input name="houseProposedEWS" id="icon_prefix" type="text" class="validate">
                             <label for="icon_prefix">No. of EWS Unit</label>
                           </div>
                         </div>
                         <div style="width:150px" class="col ligUnit">
                            <div class="input-field col houseProposed ">
-                             <input name=" houseProposed" id="icon_prefix" type="text" class="validate">
+                             <input name=" houseProposedLIG" id="icon_prefix" type="text" class="validate">
                              <label for="icon_prefix">No. of LIG Units</label>
                            </div>
                         </div> 
                         <div style="width:150px" class="col migUnit">
                                <div class="input-field col  houseProposed">
-                                 <input name="houseProposed" id="icon_prefix" type="text" class="validate">
+                                 <input name="houseProposedMIG" id="icon_prefix" type="text" class="validate">
                                  <label for="icon_prefix">No. of MIG Units</label>
                                </div>
                         </div>
                         <div style="width:150px" class="col higUnit">
                                <div class="input-field col  houseProposed">
-                                 <input name=" houseProposed" id="icon_prefix" type="text" class="validate">
+                                 <input name="houseProposedHIG" id="icon_prefix" type="text" class="validate">
                                  <label for="icon_prefix">No .of HIG Units</label>
                                </div>
                         </div>
                         <div style="width:200px" class="col commUnit">
                                 <div class="input-field col  houseProposed">
-                                  <input name=" houseProposed" id="icon_prefix" type="text" class="validate">
+                                  <input name="houseProposedCommercial" id="icon_prefix" type="text" class="validate">
                                   <label for="icon_prefix">No .of Commercial Units</label>
                                 </div> 
                          </div>
@@ -345,7 +335,7 @@
                       <div class="row">
                         
                           <div class="col input-field s6">
-                                  <input id="centralAssist" type="text" class="validate">
+                                  <input name="eligibleHousesEWS" id="centralAssist" type="text" class="validate">
                                   <label for="centralAssist">No. of EWS houses eligible for Central Assistance</label>
                           </div>
                         
@@ -353,38 +343,34 @@
                         <!--#-->
                         <p class="row">Got Grant required(Rs. 1.50 Lakh per eligible EWS house)(Rs. In Lakhs):</p>
                         <div class="row houseGrant">
-                            <div class="input-field col s3 houseGrant  ">
-                              <input name=" houseGrant" id="icon_prefix" type="text" class="validate">
+                            <div class="input-field col s4 houseGrant  ">
+                              <input name="stateGrant" id="icon_prefix" type="text" class="validate">
                               <label for="icon_prefix">State Grant(Rs. In Lakhs)</label>
                             </div>
-                             <div class="input-field col s3 houseGrant ">
-                               <input name=" houseGrant" id="icon_prefix" type="text" class="validate">
+                             <div class="input-field col s4 houseGrant ">
+                               <input name="landCost" id="icon_prefix" type="text" class="validate">
                                <label for="icon_prefix">Land Cost(Rs. In Lakhs)</label>
                           </div> 
-                                 <div class="input-field col s3  houseGrant">
-                                   <input name="houseGrant" id="icon_prefix" type="text" class="validate">
+                                 <div class="input-field col s4  houseGrant">
+                                   <input name="cashGrant" id="icon_prefix" type="text" class="validate">
                                    <label for="icon_prefix">Cash Grant(Rs. In Lakhs)</label>
                           </div>
                         </div>
                         <div class="row">
-                                 <div class="input-field col s3 houseGrant">
-                                   <input name="houseGrant " id="icon_prefix" type="text" class="validate">
+                                 <div class="input-field col s4 houseGrant">
+                                   <input name="implementingAgencyShare" id="icon_prefix" type="text" class="validate">
                                    <label for="icon_prefix">Implementing Agency Share(Rs In Lakhs)</label>
                                  </div>
-                                  <div class="input-field col s3  houseGrant">
-                                    <input name="houseGrant " id="icon_prefix" type="text" class="validate">
+                                  <div class="input-field col s4 houseGrant">
+                                    <input name="beneficiaryShare" id="icon_prefix" type="text" class="validate">
                                     <label for="icon_prefix">Beneficiary Share(Rs. In Lakhs)</label>
                            </div>
-                              <div class="input-field col s3 houseGrant">
-                                <input name="houseGrant " id="icon_prefix" type="text" class="validate">
-                                <label for="icon_prefix">Total(Rs. In Lakhs)</label>
-                           </div>  
                        </div>
                        <!--@-->
-                       <p class="row"> Whether technical Specification/design for housin have been ensured as per IndianStandards/NBC/State Norms:</p>
+                       <p class="row"> Whether technical Specification/design for housin have been ensured as per Indian Standards/NBC/State Norms:</p>
                               <div class="row">
                                <div class="col input-field s3">
-                                     <select name="privatePartner">
+                                     <select name="technicalSpecificationStandard">
                                       <option value="">Select</option>
                                       <option value="01">Yes</option>
                                       <option value="02">No</option>
@@ -395,7 +381,7 @@
                             <p class="row"> Whether trunk Infrastructure is existing or is being provided through AMRUT or any other Scheme: </p>
                             <div class="row">
                              <div class="col input-field s3">
-                                   <select name="privatePartner">
+                                   <select name="infrastructureProvided">
                                     <option value="">Select</option>
                                     <option value="01">Yes</option>
                                     <option value="02">No</option>
@@ -407,7 +393,7 @@
                            <p class="row"> Whether the provision of Civic Infrastructure has been made as per applicable State norms/CPHEEO Norms/IS Code/NBC: </p>
                            <div class="row">
                               <div class="col input-field s3">
-                                <select name="waterSupply">
+                                <select name="civicInfrastructureNorms">
                                     <option value="">Water Supply</option>
                                     <option value="01">Yes</option>
                                     <option value="02">No</option>
@@ -415,7 +401,7 @@
                              </div>
                          
                              <div class="col input-field s3">
-                                <select name="sewwrage">
+                                <select name="sewrageExistance">
                                     <option value="">Sewerage </option>
                                     <option value="01">Yes</option>
                                     <option value="02">No</option>
@@ -424,7 +410,7 @@
              
                              <div class="row">
                                      <div class="col input-field s3">
-                                             <select name="road">
+                                             <select name="roadExistance">
                                                 <option value="">Road</option>
                                                 <option value="01">Yes</option>
                                                 <option value="02">No</option>
@@ -439,7 +425,7 @@
                                 </select>
                              </div>
                              <div class="col input-field s3">
-                                <select name="wasteMang">
+                                <select name="wasteManagement">
                                     <option value="">Solid Waste Management </option>
                                     <option value="01">Yes</option>
                                     <option value="02">No</option>
@@ -447,11 +433,11 @@
                              </div>
                              <div class="row other">
                                   <div class="input-field col s3">
-                                    <input name=" anyOther" id="icon_prefix" type="text" class="validate">
+                                    <input name="anyOtherRequirement" id="icon_prefix" type="text" class="validate">
                                     <label for="icon_prefix">Any Other</label>
                                   </div>
                                    <div class="input-field col s9">
-                                     <input name="infrastNotproposed" id="icon_prefix" type="text" class="validate">
+                                     <input name="infrastructureProposed" id="icon_prefix" type="text" class="validate">
                                      <label for="icon_prefix">In case, any infrastructure has not been proposed,reason thereof</label>
                                    </div>
                              </div>
@@ -459,7 +445,7 @@
                             <p class="row"> Whether Adequate social infrastructure facilities covered in the project: </p>
                             <div class="row">
                              <div class="col input-field s3">
-                                   <select name="infraFacilities">
+                                   <select name="infrastructureFacilities">
                                     <option value="">Select</option>
                                     <option value="01">Yes</option>
                                     <option value="02">No</option>
@@ -489,7 +475,7 @@
                                <p class="row"> Whether O&M is part of the Project: </p>
                                <div class="row">
                                   <div class="col input-field s3">
-                                   <select name="oNm">
+                                   <select name="omPart">
                                      <option value="">Select</option>
                                      <option value="01">Yes</option>
                                      <option value="02">No</option>
@@ -519,11 +505,11 @@
                                <!--@-->
                                <div class="row">
                                   <div class="col input-field s6">
-                                          <input id="commentsOfslac" type="text" class="validate">
+                                          <input name="commentSLAC" id="commentsOfslac" type="text" class="validate">
                                           <label for="commentsOfslac">Comments Of SLAC after Techno Economic Appraisal of DPR</label>
                                   </div>
                                   <div class="col input-field s6">
-                                          <input id="projectBrief" type="text" class="validate">
+                                          <input name="projectBrief" id="projectBrief" type="text" class="validate">
                                           <label for="projectBrief">Project Brief including any other information ULB/State would like to furnish</label>
                                   </div>
                               </div>
@@ -532,7 +518,7 @@
                                   <div class="row">
                                     <div class="input-field col s6 ">
                                       <p style="margin-top:-20px;">Project Submission Date to SLSMC:</p>
-                                        <input type="text" class="datepicker">
+                                        <input name="projectSubmissionDate" type="text" class="datepicker">
                                         <script>
                                           $('.datepicker').pickadate({
                                             selectMonths: true, // Creates a dropdown to control month
@@ -556,8 +542,6 @@
                                   </div>
                                 </div>
                       </div>
-
-
         </form>
     </body>
 </html> 
