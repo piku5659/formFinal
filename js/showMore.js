@@ -5,8 +5,7 @@
             catOptions += `<div class="row">
                 <p style="margin-left:10px;">Family Member `+ i +` Details</p>
                 <div class="col input-field s1">
-                    <input name="serialNumber" id="icon_prefix" type="text" class="validate">
-                    <label id="serialNumber" for="icon_prefix">`+ i +`</label>
+                    <input name="serialNumber" value=`+ i +` id="icon_prefix" type="text" class="validate">      
                 </div>
                 <div class="col input-field s3">
                     <input name="mobileNumber" id="icon_prefix" type="text" class="validate">
@@ -44,7 +43,8 @@
                 </div>
             </div>`;
             i+=1;
-            document.getElementById("memMain").innerHTML += catOptions;
+            // document.getElementById("memMain").innerHTML += catOptions;
+            $("#memMain").append(catOptions);
             $('select').material_select();
         }
 
